@@ -1,0 +1,25 @@
+
+WebDriver driver=new FirefoxDriver();\par
+driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);\par
+driver.navigate().to("http://www.shophive.com/apple/mac?p=1");\par
+driver.manage().window().maximize();\par
+\par
+java.util.List<WebElement>\par
+priceList = driver.findElements(By.className("price-box")); \par
+java.util.List<WebElement>\par
+productNameList = driver.findElements(By.className("product-name"));\par
+try\{\par
+for(int i=0;i<=priceList.size();i++)\par
+\{\par
+System.out.println("Product Number: "+i+1+ "\\n Product name = " + productNameList.get(i).getText() + "\\nPrice = "+priceList.get(i).getText() ); \par
+\}\par
+\par
+\}catch(IndexOutOfBoundsException e)\par
+\{\par
+System.out.println("The End");\par
+\}\par
+\par
+driver.close();\par
+\par
+}
+ 
